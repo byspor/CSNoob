@@ -9,57 +9,69 @@ namespace Задания
             string[] jobTitle = { "Кладовщик", "Уборщик", "Секретарь" };
             string newSurFullName, newJobTitle, surname; 
             bool accountingOpen = true;
+            string numberMenu, number;
             int value, numberDossier;
             while (accountingOpen)
             {
                 DrawMenu();
                 
-                value = Convert.ToInt32(Console.ReadLine());  // условие на ввод только числа
+                numberMenu = Console.ReadLine();
+                value = NumberCheck(numberMenu);                
                 if (value <= 5 && value > 0)
-                {
-                    switch (value)
                     {
-                        case 1:
-                            Console.Write("Введите ФИО: ");
-                            newSurFullName = Console.ReadLine();
-                            fullName = AddDossier(fullName, newSurFullName);
-                            Console.Write("Введите должность: ");
-                            newJobTitle = Console.ReadLine();
-                            jobTitle = AddDossier(jobTitle, newJobTitle);
-                            break;
-                        case 2:                            
-                            DossierOutput(fullName, jobTitle);
-                            break;
-                        case 3:
-                            Console.Write("Введите номер досье для удаления: ");
-                            numberDossier = Convert.ToInt32(Console.ReadLine());
-                            if (fullName.Length == 0)
-                            {
-                                Console.WriteLine("Невозможно удалить - Список пуст");
+                        switch (value)
+                        {
+                            case 1:
+                                Console.Write("Введите ФИО: ");
+                                newSurFullName = Console.ReadLine();
+                                fullName = AddDossier(fullName, newSurFullName);
+                                Console.Write("Введите должность: ");
+                                newJobTitle = Console.ReadLine();
+                                jobTitle = AddDossier(jobTitle, newJobTitle);
                                 break;
-                            }
-                            fullName = DeleteDossier(fullName, numberDossier);
-                            jobTitle = DeleteDossier(jobTitle, numberDossier);
-                            break;
-                        case 4:
-                            Console.Write("Введите фамилию для поиска: ");
-                            surname = Console.ReadLine();
-                            SearchSurname(fullName, jobTitle, surname);
-                            break;
-                        case 5:                            
-                            accountingOpen = false;
-                            break;
-                    }
+                            case 2:
+                                DossierOutput(fullName, jobTitle);
+                                break;
+                            case 3:
+                                Console.Write("Введите номер досье для удаления: ");
+                                number = Console.ReadLine();
+                                numberDossier = NumberCheck(number);                            
+                                if (numberDossier == -1)
+                                {
+                                Console.WriteLine("Введена не верная комманда, попробуйте снова.");
+                                break;
+                                }
+                                else if (fullName.Length == 0)
+                                {
+                                    Console.WriteLine("Невозможно удалить - Список пуст");
+                                    break;
+                                }
+                                fullName = DeleteDossier(fullName, numberDossier);
+                                jobTitle = DeleteDossier(jobTitle, numberDossier);
+                                break;
+                                                       
+                            case 4:
+                                Console.Write("Введите фамилию для поиска: ");
+                                surname = Console.ReadLine();
+                                SearchSurname(fullName, jobTitle, surname);
+                                break;
+                            case 5:
+                                accountingOpen = false;
+                                break;
+                        }
 
-                    Console.WriteLine("Нажмите любую клавишу для продолжения");
+                        Console.WriteLine("Нажмите любую клавишу для продолжения");
+                        Console.ReadKey();
+                        Console.Clear();
+                }
+                else
+                {
+
+                    Console.WriteLine("Введена не верная комманда, попробуйте снова.\nНажмите любую клавишу для продолжения");
                     Console.ReadKey();
                     Console.Clear();
                 }
-                
-                    Console.WriteLine("Введена не верная комманда, попробуйте снова.\nНажмите любую клавишу для продолжения");
-                    Console.ReadKey();                    
-                    Console.Clear();
-                
+
             }
 
         }       
@@ -97,8 +109,9 @@ namespace Задания
         }
 
         static string[] DeleteDossier(string[] arrayName, int numberDossier)
-        {           
-           
+        {
+
+            
                 arrayName[numberDossier - 1] = "-";
                 for (int i = 0; i < arrayName.Length - 1; i++)
                 {
@@ -107,9 +120,9 @@ namespace Задания
                         arrayName[i] = arrayName[++i];
                         arrayName[i] = "-";
                         --i;
-
                     }
                 }
+            
 
             
             
@@ -129,7 +142,17 @@ namespace Задания
             }
         }
 
-
+        static int NumberCheck(string value)
+        {
+            if (int.TryParse(value, out int number))
+            {
+                return number;
+            }
+            else
+            {                               
+                return -1;
+            }
+        }
     }
 }
 
@@ -151,6 +174,7 @@ namespace Задания
 
 4) поиск по фамилии
 
-
-
  */
+
+
+
