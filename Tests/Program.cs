@@ -5,18 +5,20 @@
         static void Main()
         {
 
-            //Console.Write("Решение на задачу №1 - \n");
-            //Task1();
+            Console.Write("Решение на задачу №1 - \n");
+            Task1();
             Console.Write("\nРешение на задачу №2 - \n");
             Task2();
-            //Console.Write("\nРешение на задачу №3 - \n");
-            //Task3();
-            //Console.Write("\nРешение на задачу №4 - \n");
-            //Task4();
-            //Console.Write("\n\nРешение на задачу №5 - \n");
-            //Task5();
-            //Console.Write("\n\nРешение на задачу №6 - \n");
-            //Task6();
+            Console.Write("\nРешение на задачу №3 - \n");
+            Task3();
+            Console.Write("\nРешение на задачу №4 - \n");
+            Task4();
+            Console.Write("\n\nРешение на задачу №5 - \n");
+            Task5();
+            Console.Write("\n\nРешение на задачу №6 - \n");
+            Task6();
+            Console.Write("\n\nРешение на задачу №7 - \n");
+            Task7();
         }
 
         /// <summary>
@@ -163,6 +165,20 @@
         public static void Task7()
         {
             int[] a = new int[] { 5, 12, 13, 2, 1, 9, 15, 19, 6 };
+
+            int[] b = new int[a.Length];
+            Console.WriteLine("Начальный массив: ");
+            foreach (var item in a)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine("\nПеревернутый массив: ");
+            for (int i = a.Length - 1; i >= 0; i--) 
+            {
+                b[i] = a[i];
+                Console.Write(b[i] + " ");
+            }
+
         }
 
         /// <summary>
