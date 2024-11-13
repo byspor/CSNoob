@@ -17,8 +17,10 @@
             Task5();
             Console.Write("\n\nРешение на задачу №6 - \n");
             Task6();
-            Console.Write("\n\nРешение на задачу №7 - \n");
+            Console.Write("\nРешение на задачу №7 - \n");
             Task7();
+            Console.Write("\n\nРешение на задачу №8 - \n");
+            Task8();
         }
 
         /// <summary>
@@ -187,6 +189,17 @@
         public static void Task8()
         {
             int[] a = new int[] { 5, 12, 13, 2, 1, 9, 15, 19, 6 };
+            Console.WriteLine("Начальный массив: ");
+            foreach (var item in a)
+            {
+                Console.Write(item + " ");
+            }
+            Array.Reverse(a);            
+            Console.WriteLine("\nПеревернутый массив: ");
+            foreach (var item in a)
+            {
+                Console.Write(item + " ");
+            }
         }
 
         /// <summary>
