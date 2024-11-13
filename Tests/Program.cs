@@ -25,6 +25,8 @@
             Task9();
             Console.Write("\n\nРешение на задачу №10 - \n");
             Task10();
+            Console.Write("\n\nРешение на задачу №11 - \n");
+            Task11();
         }
 
         /// <summary>
@@ -246,7 +248,28 @@
         /// </summary>
         public static void Task11()
         {
-            int[,] m = new int[,] { { 11, 22, 31 }, { 4, 53, 6 }, { 7, 81, 90 } };
+            int[,] m = new int[,] { { 11, 22, 31 }, { 4, 53, 6 }, { 7, 81, 90 } };            
+            int[] f = new int[m.Length];
+            int k = 0;
+
+            Console.WriteLine("Наш двумерный массив: ");
+            for (int i = 0; i < m.GetLength(0); i++)
+            {
+                
+                for (int j = 0; j < m.GetLength(1); j++)
+                {
+                    f[k] = m[i, j];
+                    k++;
+                    Console.Write(m[i,j] + " ");
+                }
+                Console.WriteLine();
+            }
+
+            Console.WriteLine("С копируемый одномерный массив: ");
+            foreach (int i in f)
+            {
+                Console.Write(i + " ");
+            }
         }
 
 
