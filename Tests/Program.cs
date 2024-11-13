@@ -5,18 +5,18 @@
         static void Main()
         {
 
-            Console.Write("Решение на задачу №1 - \n");
-            Task1();
+            //Console.Write("Решение на задачу №1 - \n");
+            //Task1();
             Console.Write("\nРешение на задачу №2 - \n");
             Task2();
-            Console.Write("\nРешение на задачу №3 - \n");
-            Task3();
-            Console.Write("\nРешение на задачу №4 - \n");
-            Task4();
-            Console.Write("\n\nРешение на задачу №5 - \n");
-            Task5();
-            Console.Write("\n\nРешение на задачу №6 - \n");
-            Task6();
+            //Console.Write("\nРешение на задачу №3 - \n");
+            //Task3();
+            //Console.Write("\nРешение на задачу №4 - \n");
+            //Task4();
+            //Console.Write("\n\nРешение на задачу №5 - \n");
+            //Task5();
+            //Console.Write("\n\nРешение на задачу №6 - \n");
+            //Task6();
         }
 
         /// <summary>
@@ -24,7 +24,7 @@
         /// </summary>
         public static void Task1()
         {
-            int[] a = new int[] { 5, 12, 13, 2, 1, 9, 15, 19, 6 };            
+            int[] a = new int[] { 5, 12, 13, 2, 1, 9, 15, 19, 6 };
             int min = int.MaxValue;
             Console.WriteLine("Наш массив: ");
             foreach (var item in a)
@@ -48,7 +48,7 @@
         /// </summary>
         public static void Task2()
         {
-            int[] a = new int[] { 5, 12, 13, 2, 1, 9, 15, 19, 6 };
+            int[] a = new int[] { 1, 200, 13, 2, 1, 9, 15, 19, 6000 };
             int max1 = int.MinValue;
             int max2 = int.MinValue;
 
@@ -63,12 +63,15 @@
                 if (a[i] > max1)
                 {
                     max1 = a[i];
-                    if (a[++i] > max1)
-                    {
-                        max2 = a[i];
-                    }
                 }
-                
+
+            }
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (a[i] > max2 && a[i] != max1)
+                {
+                    max2 = a[i];
+                }
             }
             Console.WriteLine("\nПервое максимальное число = " + max1 + "\nВторое максимальное число = " + max2);
         }
@@ -151,7 +154,7 @@
             {
                 Console.WriteLine("Одинаковых чисел не найдено");
             }
-            
+
         }
 
         /// <summary>

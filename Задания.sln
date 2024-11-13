@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35410.144
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Тренировка", "Задания\Тренировка.csproj", "{BF0ADA21-323A-485C-9C82-DBBBAE6D440C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.1 Кадровый учет", "Задания\4.1 Кадровый учет.csproj", "{BF0ADA21-323A-485C-9C82-DBBBAE6D440C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Конвертер валют", "Конвертер валют\Конвертер валют.csproj", "{FCB72612-201D-40DE-927B-06AA3BD4B937}"
 EndProject
@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.2. UIElement", "4.2. UIEl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.3. ReadInt", "4.3. ReadInt\4.3. ReadInt.csproj", "{886CC14D-953C-45C0-A70D-D8D6B3E07BAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4. Brave new world", "4. Brave new world\4. Brave new world.csproj", "{50227F39-B3A5-479D-AB7D-5BBAD283C011}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.2 Brave new world", "4. Brave new world\4.2 Brave new world.csproj", "{50227F39-B3A5-479D-AB7D-5BBAD283C011}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5. Канзас сити шафл", "5. Канзас сити шафл\5. Канзас сити шафл.csproj", "{51B8FF61-9B14-479F-ABF9-BE2154B3248A}"
 EndProject

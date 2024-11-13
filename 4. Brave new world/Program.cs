@@ -1,4 +1,4 @@
-﻿namespace _4._Brave_new_world
+﻿namespace _4._2_Brave_new_world
 {
     internal class Program
     {

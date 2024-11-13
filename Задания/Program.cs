@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Задания
+namespace _4._1_Кадровый_учет
 {
     public class Program
     {
