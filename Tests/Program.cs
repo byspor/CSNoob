@@ -27,6 +27,8 @@
             Task10();
             Console.Write("\n\nРешение на задачу №11 - \n");
             Task11();
+            Console.Write("\n\nРешение на задачу №12 - \n");
+            Task12();
         }
 
         /// <summary>
@@ -280,6 +282,27 @@
         {
             //подсказка: для определения остатка от деления используется оператор %
             int ostatok = 4 % 2; //будет равен нулю
+            int evenNumbers = 0;
+            Random random = new Random();
+            int[,] array = new int[10, 10];
+
+
+            Console.WriteLine("Наш массив с рандомными числами: ");
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    array[i, j] = random.Next(1, 99);
+                    Console.Write(array[i, j] + " ");
+                    if (array[i, j] % 2 == 0)
+                    {
+                        evenNumbers++;
+                    }
+                }
+                Console.WriteLine();
+            }
+
+            Console.WriteLine("Кол-во четных чисел = " + evenNumbers);
         }
     }
 }
