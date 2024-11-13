@@ -21,6 +21,8 @@
             Task7();
             Console.Write("\n\nРешение на задачу №8 - \n");
             Task8();
+            Console.Write("\n\nРешение на задачу №9 - \n");
+            Task9();
         }
 
         /// <summary>
@@ -208,6 +210,15 @@
         public static void Task9()
         {
             int[,] m = new int[,] { { 11, 22, 31 }, { 4, 53, 6 }, { 7, 81, 90 } };
+            int sum = 0;
+            for (int i = 0; i < m.GetLength(0); i++)
+            {
+                for (int j = 0; j < m.GetLength(1); j++)
+                {
+                    sum += m[i, j];
+                }
+            }
+            Console.WriteLine("Сумма всех чиcел массива = " + sum);
         }
 
         /// <summary>
