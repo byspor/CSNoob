@@ -23,6 +23,8 @@
             Task8();
             Console.Write("\n\nРешение на задачу №9 - \n");
             Task9();
+            Console.Write("\n\nРешение на задачу №10 - \n");
+            Task10();
         }
 
         /// <summary>
@@ -182,7 +184,6 @@
                 b[i] = a[i];
                 Console.Write(b[i] + " ");
             }
-
         }
 
         /// <summary>
@@ -226,6 +227,18 @@
         /// </summary>
         public static void Task10()
         {
+            Random random = new Random();
+            int[,] array = new int[10, 10];
+            Console.WriteLine("Наш массив с рандомными числами: ");
+            for (int i = 0; i< array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    array[i, j] = random.Next(1, 10);
+                    Console.Write(array[i,j] + " ");
+                }
+                Console.WriteLine();
+            }
         }
 
         /// <summary>
