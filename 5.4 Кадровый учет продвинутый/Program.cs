@@ -5,6 +5,7 @@
         static void Main(string[] args)
         {
             Dictionary<string, string> dossier = new Dictionary<string, string>();
+
             dossier.Add("Петров А.А.", "Кладовщик");
             dossier.Add("Семенова А.Г.", "Секретарь");
             dossier.Add("Малинина Г.Г.", "Бухгалтер");
