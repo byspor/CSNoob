@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "practice", "practice\practi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6.1. Работа с классами", "6.1. Работа с классами\6.1. Работа с классами.csproj", "{500083CD-2218-4938-83F5-7BBEC0159E68}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6.1. Работа с классами ДЗ", "6.1. Работа с классами ДЗ\6.1. Работа с классами ДЗ.csproj", "{85F2A784-4491-46D6-8CC0-2E58D613616A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,8 +95,15 @@ Global
 		{500083CD-2218-4938-83F5-7BBEC0159E68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{500083CD-2218-4938-83F5-7BBEC0159E68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{500083CD-2218-4938-83F5-7BBEC0159E68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85F2A784-4491-46D6-8CC0-2E58D613616A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85F2A784-4491-46D6-8CC0-2E58D613616A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85F2A784-4491-46D6-8CC0-2E58D613616A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85F2A784-4491-46D6-8CC0-2E58D613616A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B8355F0C-F641-411D-84B5-8E6D81259FEF}
 	EndGlobalSection
 EndGlobal
