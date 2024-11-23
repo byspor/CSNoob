@@ -30,45 +30,25 @@
                 switch (numberMenu)
                 {
                     case 1:
-                        players.Add(AddPlayer());
+                        players.Add(Player.AddPlayer());
                         break;
-                    case 2:
-                        Console.Write($"Введите номер игрока для бана: ");
-                        playerSelection = Convert.ToInt32(Console.ReadLine());
-                        players[playerSelection - 1].banPlayer();
+                    case 2:                        
+                        players[Player.PlayerNumber()].banPlayer();
                         break;
-                    case 3:
-                        Console.Write($"Введите номер игрока для разбана: ");
-                        playerSelection = Convert.ToInt32(Console.ReadLine());
-                        players[playerSelection - 1].unBanPlayer();
+                    case 3:                        
+                        players[Player.PlayerNumber()].unBanPlayer();
                         break;
-                    case 4:
-                        Console.Write($"Введите номер игрока для удаления: ");
-                        playerSelection = Convert.ToInt32(Console.ReadLine());
-                        players.RemoveAt(playerSelection - 1);
+                    case 4:                        
+                        players.RemoveAt(Player.PlayerNumber());
                         break;
                     case 5:
                         isOpen = false;
                         break;
                 }
 
-                Console.Clear();
-            }
-
-
-            
-        }
-
-        public static Player AddPlayer()
-        {
-            string nameNew;
-            int lvlNew;
-            Console.WriteLine("Введите имя игрока: ");
-            nameNew = Console.ReadLine();
-            Console.WriteLine("Введите лвл игрока: ");
-            lvlNew = Convert.ToInt32(Console.ReadLine());
-            return new Player(nameNew, lvlNew);
-        }
+                Console.Clear();                
+            }            
+        }     
 
         public class Player
         {
@@ -82,20 +62,21 @@
                 _name = name;
                 _lvl = lvl;
             }
-            void DrawBan()
+            string DrawBan()
             {
                 if (_ban)
                 {
-                    Console.Write("Забанен");
+                   return "Забанен";
                 }
                 else 
                 {
-                    Console.Write("Не забанен");
+                    return "Не забанен";
                 }
             }
             public void ShowPlayer()
             {
-                Console.WriteLine($"Имя игрока: {_name} | Уровень = {_lvl} | Доступ к учетной записи - {DrawBan}");
+                Console.WriteLine($"Имя игрока: {_name,-15} | Уровень: {_lvl,3} | Статус: {DrawBan()}");
+
             }
 
             public void banPlayer()
@@ -106,6 +87,25 @@
             public void unBanPlayer()
             {
                 _ban = false;
+            }
+
+            public static Player AddPlayer()
+            {
+                string name;
+                int lvl;
+                Console.WriteLine("Введите имя игрока: ");
+                name = Console.ReadLine();
+                Console.WriteLine("Введите лвл игрока: ");
+                lvl = Convert.ToInt32(Console.ReadLine());
+                return new Player(name, lvl);
+            }
+
+            public static int PlayerNumber()
+            {
+                int number;
+                Console.Write("Введите номер игрока: ");
+                number = Convert.ToInt32(Console.ReadLine());
+                return number - 1;
             }
         }
     }
