@@ -7,8 +7,7 @@
             bool isOpen = true;
             int numberMenu, playerSelection;
 
-            List<Player> players = new List<Player>() { new Player("Alex", 1), new Player("Kris", 5) };
-        //    players.Add(new Player("Kris", 5));   
+            List<Player> players = new List<Player>() { new Player("Alex", 1), new Player("Kris", 5) };         
                    
             while (isOpen)
             {
@@ -33,10 +32,10 @@
                         players.Add(Player.AddPlayer());
                         break;
                     case 2:                        
-                        players[Player.PlayerNumber()].banPlayer();
+                        players[Player.PlayerNumber()].Ban = true;
                         break;
                     case 3:                        
-                        players[Player.PlayerNumber()].unBanPlayer();
+                        players[Player.PlayerNumber()].Ban = false;
                         break;
                     case 4:                        
                         players.RemoveAt(Player.PlayerNumber());
@@ -55,7 +54,15 @@
 
             string _name;
             int _lvl;
-            bool _ban;            
+            bool _ban;
+
+            public bool Ban
+            {
+                get { return _ban; }
+                set { _ban = value; }
+            }
+            
+
 
             public Player(string name, int lvl)
             {
@@ -78,16 +85,7 @@
                 Console.WriteLine($"Имя игрока: {_name,-15} | Уровень: {_lvl,3} | Статус: {DrawBan()}");
 
             }
-
-            public void banPlayer()
-            {
-                _ban = true;
-            }
-
-            public void unBanPlayer()
-            {
-                _ban = false;
-            }
+            
 
             public static Player AddPlayer()
             {
