@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6.2. Работа со св
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6.3. База данных игроков", "6.3. База данных игроков\6.3. База данных игроков.csproj", "{1889B8F0-28A0-414A-8489-EBD357142050}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6.4. Магазин", "6.4. Магазин\6.4. Магазин.csproj", "{6F889630-76B6-414D-92E7-FCF41B3493F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,10 @@ Global
 		{1889B8F0-28A0-414A-8489-EBD357142050}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1889B8F0-28A0-414A-8489-EBD357142050}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1889B8F0-28A0-414A-8489-EBD357142050}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F889630-76B6-414D-92E7-FCF41B3493F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F889630-76B6-414D-92E7-FCF41B3493F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F889630-76B6-414D-92E7-FCF41B3493F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F889630-76B6-414D-92E7-FCF41B3493F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
