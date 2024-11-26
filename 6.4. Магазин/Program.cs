@@ -4,10 +4,10 @@
     {
         static void Main(string[] args)
         {
-            
+
             Player player1 = new Player("Max", 1000);
 
-            
+
             Vendor.Welcome(player1);
 
         }
@@ -37,7 +37,7 @@
                     $"1. Посмотреть список товаров\n" +
                     $"2. Купить товар\n" +
                     $"3. Посмотреть свой инвентарь\n" +
-                    $"4. Покинуть лавку");                
+                    $"4. Покинуть лавку");
                 int numberMenu = Convert.ToInt32(Console.ReadLine());
                 Console.Clear();
                 switch (numberMenu)
@@ -49,7 +49,7 @@
                         BuyItem(player);
                         break;
                     case 3:
-                        player.ShowInventory();
+                        player.ShowBackpack();
                         break;
                     case 4:
                         IsOpen = false;
@@ -75,7 +75,8 @@
                 {
                     player.Money -= valueItem * items[numberItem - 1].Price;
                     items[numberItem - 1].Value -= valueItem;
-                    player.AddItem(items[numberItem - 1]);
+                    Item purchasedItem = new Item(items[numberItem - 1].Name, valueItem);
+                    player.AddItem(purchasedItem);
                     Console.WriteLine("Покупка прошла успешно");
                 }
                 else
@@ -105,17 +106,18 @@
 
         public string Name { get => _name; set => _name = value; }
         public int Money { get => _money; set => _money = value; }
+        internal List<Item> Backpack { get => _buyItems; set => _buyItems = value; }
 
         public void AddItem(Item item)
         {
-            _buyItems.Add(item);
+            Backpack.Add(item);
         }
 
-        public void ShowInventory()
+        public void ShowBackpack()
         {
-            for (int i = 0; i < _buyItems.Count; i++)
+            for (int i = 0; i < Backpack.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. Наименование: {_buyItems[i].Name,-10} | Кол-во товара: {_buyItems[i].Value,3}");
+                Console.WriteLine($"{i + 1}. Наименование: {Backpack[i].Name,-10} | Кол-во товара: {Backpack[i].Value,3}");
             }
         }
     }
@@ -135,6 +137,12 @@
             Name = name;
             Value = value;
             Price = price;
+        }
+
+        public Item(string name, int value)
+        {
+            Name = name;
+            Value = value;            
         }
     }
 }
