@@ -38,8 +38,13 @@
                     $"2. Купить товар\n" +
                     $"3. Посмотреть свой инвентарь\n" +
                     $"4. Покинуть лавку");
-                int numberMenu = Convert.ToInt32(Console.ReadLine());
-                Console.Clear();
+                string inputNumberMenu = Console.ReadLine();
+                if (!int.TryParse(inputNumberMenu, out int numberMenu) || numberMenu < 1 || numberMenu > 4)
+                {
+                    Console.WriteLine("Некорректный номер меню, попробуйте снова");
+                    Console.WriteLine("Нажмите любую клавишу для продолжения");
+                    Console.ReadKey();                    
+                }                
                 switch (numberMenu)
                 {
                     case 1:
@@ -66,9 +71,18 @@
             int numberItem;
             int valueItem;
             Console.Write("Введите номер товара для покупки: ");
-            numberItem = Convert.ToInt32(Console.ReadLine());
+            string inputNumberItem = Console.ReadLine();
+            if (!int.TryParse(inputNumberItem, out numberItem) || numberItem < 1 || numberItem > items.Count)
+            {
+                Console.WriteLine("Некорректный номер товара, попробуйте снова.");
+                return;
+            }
             Console.WriteLine($"Введите кол-во {items[numberItem - 1].Name} для покупки");
-            valueItem = Convert.ToInt32(Console.ReadLine());
+            string inputValueItem = Console.ReadLine();
+            if (!int.TryParse(inputValueItem, out valueItem) || valueItem <= 0)
+            {
+                Console.WriteLine("Некорректное кол-во товара, попробуйте снова.");
+            }
             if (valueItem <= items[numberItem - 1].Value)
             {
                 if (player.Money >= valueItem * items[numberItem - 1].Price)
@@ -115,10 +129,14 @@
 
         public void ShowBackpack()
         {
+            if (Backpack.Count == 0)
+            {
+                Console.WriteLine("Ваша сумка пуста");
+            }
             for (int i = 0; i < Backpack.Count; i++)
             {
                 Console.WriteLine($"{i + 1}. Наименование: {Backpack[i].Name,-10} | Кол-во товара: {Backpack[i].Value,3}");
-            }
+            }            
         }
     }
 
@@ -142,7 +160,7 @@
         public Item(string name, int value)
         {
             Name = name;
-            Value = value;            
+            Value = value;
         }
     }
 }
