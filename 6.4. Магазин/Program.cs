@@ -15,7 +15,7 @@
 
     static class Vendor
     {
-        private static List<Item> items = new List<Item>() { new Item("banana", 10, 5), new("orange", 20, 3), new("persimmon", 5, 10) };
+        private static List<Item> items = new List<Item>() { new Item("banana", 10, 5), new("orange", 20, 300), new("persimmon", 5, 10) };
         private static bool _isOpen = true;
 
         public static bool IsOpen { get => _isOpen; set => _isOpen = value; }
@@ -32,7 +32,7 @@
         {
             while (IsOpen)
             {
-                Console.WriteLine($"Добро пожаловать в наш магазин\n" +
+                Console.WriteLine($"Добро пожаловать в наш магазин уважаемый | {player.Name, -3} | на вашем счету | {player.Money, -4} |\n" +
                     $"Что бы вы хотели сделать у нас в магазине?\n" +
                     $"1. Посмотреть список товаров\n" +
                     $"2. Купить товар\n" +
