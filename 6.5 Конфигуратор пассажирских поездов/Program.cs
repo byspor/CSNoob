@@ -9,7 +9,7 @@ namespace _6._5_Конфигуратор_пассажирских_поездов
         {
             bool isOpen = true;
             int numberTownDeparture, numberTownArrival, inputNumberMenu;
-            string departureСity = "", arrivalCity = "";
+            string departureСity = "", arrivalCity = "";            
             Passenger passenger = new Passenger(0);
             Train train = new Train(0);
             while (isOpen)
@@ -173,7 +173,7 @@ namespace _6._5_Конфигуратор_пассажирских_поездов
         public void ShowInfo(Wagon wagon)
         {
 
-            Console.WriteLine($"В вагоне {wagon.NumberOfPlace} пассажиров");            
+            Console.WriteLine($"В вагоне {wagon.NumberOfPlace} мест");            
         }
 
         public void AddWagon(Wagon wagon)
