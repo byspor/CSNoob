@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6.3. База данных 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6.4. Магазин", "6.4. Магазин\6.4. Магазин.csproj", "{6F889630-76B6-414D-92E7-FCF41B3493F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6.5 Конфигуратор пассажирских поездов", "6.5 Конфигуратор пассажирских поездов\6.5 Конфигуратор пассажирских поездов.csproj", "{E01ED509-D98C-4398-903F-3E08CB8687E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,10 @@ Global
 		{6F889630-76B6-414D-92E7-FCF41B3493F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F889630-76B6-414D-92E7-FCF41B3493F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F889630-76B6-414D-92E7-FCF41B3493F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E01ED509-D98C-4398-903F-3E08CB8687E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E01ED509-D98C-4398-903F-3E08CB8687E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E01ED509-D98C-4398-903F-3E08CB8687E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E01ED509-D98C-4398-903F-3E08CB8687E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -43,26 +43,30 @@
                 {
                     Console.WriteLine("Некорректный номер меню, попробуйте снова");
                     Console.WriteLine("Нажмите любую клавишу для продолжения");
-                    Console.ReadKey();                    
-                }                
-                switch (numberMenu)
-                {
-                    case 1:
-                        ShowProductList();
-                        break;
-                    case 2:
-                        BuyItem(player);
-                        break;
-                    case 3:
-                        player.ShowBackpack();
-                        break;
-                    case 4:
-                        IsOpen = false;
-                        break;
+                    Console.ReadKey();
+                    Console.Clear();
                 }
-                Console.WriteLine("Нажмите любую клавишу для продолжения");
-                Console.ReadKey();
-                Console.Clear();
+                else
+                {
+                    switch (numberMenu)
+                    {
+                        case 1:
+                            ShowProductList();
+                            break;
+                        case 2:
+                            BuyItem(player);
+                            break;
+                        case 3:
+                            player.ShowBackpack();
+                            break;
+                        case 4:
+                            IsOpen = false;
+                            break;
+                    }
+                    Console.WriteLine("Нажмите любую клавишу для продолжения");
+                    Console.ReadKey();
+                    Console.Clear();
+                }
             }
         }
 
@@ -82,6 +86,7 @@
             if (!int.TryParse(inputValueItem, out valueItem) || valueItem <= 0)
             {
                 Console.WriteLine("Некорректное кол-во товара, попробуйте снова.");
+                return;
             }
             if (valueItem <= items[numberItem - 1].Value)
             {
@@ -102,7 +107,7 @@
             {
                 Console.WriteLine("Столько товара нет в наличии");
             }
-        }
+        }        
 
     }
 
