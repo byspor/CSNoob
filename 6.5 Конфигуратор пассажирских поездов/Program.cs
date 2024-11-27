@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace _6._5_Конфигуратор_пассажирских_поездов
 {
@@ -7,87 +8,146 @@ namespace _6._5_Конфигуратор_пассажирских_поездов
         static void Main(string[] args)
         {
             bool isOpen = true;
-            int inputNumberMenu, numberTownDeparture, numberTownArrival, numberTicket = 0;
-            string departureСity = "", arrivalCity = "";  
+            int numberTownDeparture, numberTownArrival, inputNumberMenu;
+            string departureСity = "", arrivalCity = "";
             Passenger passenger = new Passenger(0);
+            Train train = new Train(0);
             while (isOpen)
-            {
+            {                
                 Console.WriteLine("Добро пожаловать!\n");
                 if (departureСity == "" || arrivalCity == "")
                 {
                     Console.WriteLine("В данный момент рейсов нет!\n");
                 }
-                else 
+                else
                 {
                     Console.WriteLine($"Текущий рейс: {departureСity} - {arrivalCity}\n");
-                    passenger.ShowInfo();
-                    //Console.WriteLine($"Кол-во купленных билетов {numberTicket}\n");
+                    Console.WriteLine($"Кол-во необходимых мест для посадки: {passenger.ValueTicket}\n");
+                    Console.WriteLine($"Статус поезда - {train.StatusTrain()}");
                 }
                 Console.WriteLine($"Выберите действие:\n" +
                     $"1. Создать направление\n" +
                     $"2. Продать билеты\n" +
                     $"3. Сформировать поезд\n" +
                     $"4. Отправить поезд\n");
-                inputNumberMenu = Convert.ToInt32(Console.ReadLine());
-                switch (inputNumberMenu)
+
+                if (int.TryParse(Console.ReadLine(), out inputNumberMenu) && inputNumberMenu > 0 && inputNumberMenu < 5)
                 {
-                    case 1:
-                        if (City.Free)
-                        {
-                            Console.WriteLine($"Выберите направление откуда едем:");
-                            City.ShowInfo();
-                            numberTownDeparture = Convert.ToInt32(Console.ReadLine());
-                            departureСity = City.Towns[numberTownDeparture];
-                            Console.WriteLine($"Выберите направление куда едем:");
-                            City.ShowInfo();
-                            numberTownArrival = Convert.ToInt32(Console.ReadLine());
-                            if (numberTownDeparture == numberTownArrival)
+                    switch (inputNumberMenu)
+                    {
+                        case 1:                            
+                            if (City.Free)
                             {
-                                Console.WriteLine("Невозможно выбрать данный город, так как вы из него отправляетесь. Попробуйте снова.");
+                                Console.WriteLine($"Выберите направление откуда едем:");
+                                City.ShowInfo();
+                                if (int.TryParse(Console.ReadLine(), out numberTownDeparture) && City.Towns.ContainsKey(numberTownDeparture))
+                                {
+                                    departureСity = City.Towns[numberTownDeparture];
+                                    Console.WriteLine($"Выберите направление куда едем:");
+                                    City.ShowInfo();
+                                    if (int.TryParse(Console.ReadLine(), out numberTownArrival) && City.Towns.ContainsKey(numberTownArrival))
+                                    {
+                                        if (numberTownDeparture == numberTownArrival)
+                                        {
+                                            Console.WriteLine("Невозможно выбрать данный город, так как вы из него отправляетесь. Попробуйте снова.");
+                                        }
+                                        else
+                                        {
+                                            arrivalCity = City.Towns[numberTownArrival];
+                                            Console.WriteLine($"Рейс {departureСity} - {arrivalCity} успешно зарегистрирован");
+                                            City.Free = false;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Некорректный ввод. Попробуйте снова.");
+                                    }
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Некорректный ввод. Попробуйте снова.");
+                                }
                             }
                             else
                             {
-                                arrivalCity = City.Towns[numberTownArrival];
-                                Console.WriteLine($"Рейс {departureСity} - {arrivalCity} успешно зарегистрирован");
-                                City.Free = false;
+                                Console.WriteLine("Не возможно создать рейс, путь занят другим рейсом");
+                            }                            
+                            break;
+                        case 2:
+                            if (departureСity == "")
+                            {
+                                Console.WriteLine("В настоящее время рейсов нет. Купить билеты не возможно. Попробуйте позже.");
                             }
-                        }
-                        else
-                        {
-                            Console.WriteLine("Не возможно создать рейс, путь занят другим рейсом");
-                        }
-                        break;
-                    case 2:
-                        if (departureСity == "" || arrivalCity == "")
-                        {
-                            Console.WriteLine("В настоящее время рейсов нет. Купить билеты не возможно. Попробуйте позже.");
-                        }
-                        else
-                        {
-                            // numberTicket = passenger.ValueTicket;
-                            Passenger passenger1 = new Passenger();
-                            Passenger passenger = passenger1;
-                            passenger.ShowInfo();
-                        }
-                        break;
-                    case 3:
-                        break;
-                    case 4:
-                        break;
+                            else if (train.FreeDirection == false || passenger.ValueTicket > 0)
+                            {
+                                Console.WriteLine("Билеты распроданы попробуйте позже.");
+                            }
+                            else
+                            {
+                                passenger = new Passenger();
+                                passenger.ShowInfo();
+                            }                            
+                            break;
+                        case 3:
+                            if (passenger.ValueTicket > 0)
+                            {
+                                train = new Train();
+                                train.FreeDirection = false;
+                                for (int i = 0; i <= passenger.ValueTicket; i++)
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine($"Кол-во необходимых мест для посадки: {passenger.ValueTicket}\n");
+                                    Console.WriteLine($"Добавить вагон №{i + 1}");
+                                    Wagon wagon = new Wagon();
+                                    train.AddWagon(wagon);
+                                    passenger.ValueTicket -= wagon.NumberOfPlace;
+                                    if (passenger.ValueTicket < 0)
+                                    {
+                                        passenger.ValueTicket = 0;
+                                    }
+                                    train.ShowInfo(wagon);
+                                    Console.WriteLine($"Кол-во необходимых мест после посадки в вагон №{i + 1}: {passenger.ValueTicket}\n");
+                                    Console.WriteLine("\nНажмите кнопку для продолжения.");
+                                    Console.ReadKey();
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("Купленных билетов нету. Попробуйте позже.");
+                            }
+                            break;
+                        case 4:
+                            if (train.FreeDirection)
+                            {
+                                Console.WriteLine("В данный момент нет поездов для отправления.");
+                            }
+                            else
+                            {
+                                train.FreeDirection = true;
+                                departureСity = "";
+                                arrivalCity = "";
+                                Console.WriteLine("Поезд отчалил и путь освободился для нового маршрута.");
+                            }
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Некорректный ввод. Попробуйте снова.");
                 }
                 Console.WriteLine("Нажмите кнопку для продолжения.");
                 Console.ReadKey();
                 Console.Clear();
             }
         }
-        
+
     }
 
     interface Itrain
     {
 
         bool FreeDirection { get; set; }
-        List<Wagon> vagons { get; set; }
+        List<Wagon> Wagons { get; set; }
 
 
     }
@@ -96,12 +156,45 @@ namespace _6._5_Конфигуратор_пассажирских_поездов
     {
 
         public bool FreeDirection { get; set; }
-        public List<Wagon> vagons { get; set; }
+        public List<Wagon> Wagons { get; set; }
+        public int Empty { get; set; }
 
         public Train()
         {
-            vagons = new List<Wagon>();
+            Wagons = new List<Wagon>();
         }
+
+        public Train(int empty)
+        {
+            Empty = empty;
+            FreeDirection = true;
+        }
+
+        public void ShowInfo(Wagon wagon)
+        {
+
+            Console.WriteLine($"В вагоне {wagon.NumberOfPlace} пассажиров");            
+        }
+
+        public void AddWagon(Wagon wagon)
+        {
+
+            Wagons.Add(wagon);
+        }
+
+        public string StatusTrain()
+        {
+            if (FreeDirection)
+            {
+               return "Путь свободен";
+            }
+            else
+            {
+               return "Путь занят";
+            }
+            
+        }
+        
     }
 
     interface IWagon
@@ -124,7 +217,7 @@ namespace _6._5_Конфигуратор_пассажирских_поездов
     }
     class Passenger
     {
-        Random random = new Random();        
+        Random random = new Random();
 
         public Passenger()
         {
@@ -137,21 +230,14 @@ namespace _6._5_Конфигуратор_пассажирских_поездов
         }
 
         public int ValueTicket { get; set; }
-        public int Zero { get; }
+        public int Zero { get; set; }
 
         public void ShowInfo()
         {
             Console.WriteLine($"Кол-во купленных билетов {ValueTicket}");
         }
 
-    }
-
-    public enum direction
-    {
-        Bijsk,
-        Barnaul,
-        Babrujsk,
-        Volgograd
+        
     }
 
     static class City
