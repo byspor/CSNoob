@@ -11,7 +11,7 @@ namespace _6._6._Гладиаторские_бои
             Fighter leftFighter;
             Fighter rightFighter;
             int UnBuff = 3;
-            List<Fighter> fighters = new List<Fighter>() { new Barbarian("ZUXLET"), new Mage("SPOR"), new Warrior("androidggg") };
+            List<Fighter> fighters = new List<Fighter>() { new Barbarian("ZUXLET"), new Mage("SPOR"), new Warrior("androidggg"), new Imba("Imba") };
 
             for (int i = 0; i < fighters.Count; i++)
             {
@@ -37,12 +37,12 @@ namespace _6._6._Гладиаторские_бои
                     break;
                 }
             }
-            Console.Clear();           
+            Console.Clear();
 
             while (rightFighter.Health > 0 && leftFighter.Health > 0)
             {
-                
-                
+
+
                 rightFighter.ShowInfo();
                 leftFighter.ShowInfo();
                 if (UnBuff == 0)
@@ -52,17 +52,23 @@ namespace _6._6._Гладиаторские_бои
                     UnBuff = 2;
                 }
                 --UnBuff;
-                if (rightFighter.Buff == 0 && leftFighter.Buff == 0)
+                if (leftFighter.Buff == 0)
                 {
-                    rightFighter.Skill();
                     leftFighter.Skill();
                 }
-                else 
+                else
+                {
+                    leftFighter.Buff -= 1;
+                }
+                if (rightFighter.Buff == 0)
+                {
+                    rightFighter.Skill();
+                }
+                else
                 {
                     rightFighter.Buff -= 1;
-                    leftFighter.Buff -= 1;
-                }               
-                
+                }
+
                 leftFighter.Fight(leftFighter, rightFighter);
                 rightFighter.Fight(rightFighter, leftFighter);
 
@@ -72,13 +78,21 @@ namespace _6._6._Гладиаторские_бои
             leftFighter.ShowInfo();
             if (rightFighter.Health <= 0)
             {
+                if (leftFighter.Damage == 1000)
+                {
+                    Console.WriteLine("\nВраг убит 1 ударом");
+                }
                 Console.WriteLine("\nВыжил " + leftFighter.Name);
             }
             else
             {
+                if (rightFighter.Damage == 1000)
+                {
+                    Console.WriteLine("\nВраг убит 1 ударом");
+                }
                 Console.WriteLine("\nВыжил " + rightFighter.Name);
             }
-            
+
         }
     }
 
@@ -99,7 +113,7 @@ namespace _6._6._Гладиаторские_бои
 
         public void Fight(Fighter leftFighter, Fighter rightFighter)
         {
-            leftFighter.Health -= rightFighter.Damage - ArmorPercentage(leftFighter,rightFighter);                                 
+            leftFighter.Health -= rightFighter.Damage - ArmorPercentage(leftFighter, rightFighter);
         }
 
         private float ArmorPercentage(Fighter leftFighter, Fighter rightFighter)
@@ -111,7 +125,7 @@ namespace _6._6._Гладиаторские_бои
 
     class Barbarian : Fighter
     {
-        
+
         public Barbarian(string name)
         {
             Name = name;
@@ -176,6 +190,44 @@ namespace _6._6._Гладиаторские_бои
             Armor = 25;
         }
     }
+
+    class Imba : Fighter
+    {
+        public float ChanceToKill { get; set; }
+        private readonly float StartHealth;
+
+        public Imba(string name)
+        {
+            Name = name;
+            Health = Program.random.Next(200, 301);
+            Damage = Program.random.Next(0, 11);
+            Armor = Program.random.Next(0, 6);
+            Buff = 0;
+            StartHealth = Health;
+        }
+
+
+
+        public override void Skill()
+        {
+
+            ChanceToKill = Program.random.Next(1, 21);
+            if (Health != StartHealth)
+            {
+                ChanceToKill += (StartHealth - Health) / StartHealth * 100 / 10;
+            }
+            if (ChanceToKill >= Program.random.Next(1, 101))
+            {
+                Damage = 1000;
+            }
+            Buff = 0;
+        }
+
+        public override void UnSkill()
+        {
+
+        }
+    }
 }
 
 
@@ -183,8 +235,7 @@ namespace _6._6._Гладиаторские_бои
 //Задача:
 //Создать 5 бойцов, пользователь выбирает 2 бойцов и они сражаются друг с другом до смерти. У каждого бойца могут быть свои статы.
 //Каждый игрок должен иметь особую способность для атаки, которая свойственна только его классу!
-//Max XP 1000, 
-
+//Max XP 1000
 
 
 //Пожелание народа
