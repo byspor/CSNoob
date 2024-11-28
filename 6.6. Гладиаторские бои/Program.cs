@@ -11,7 +11,7 @@ namespace _6._6._Гладиаторские_бои
             Fighter leftFighter;
             Fighter rightFighter;
             int UnBuff = 3;
-            List<Fighter> fighters = new List<Fighter>() { new Barbarian("ZUXLET"), new Mage("SPOR"), new Warrior("androidggg"), new Imba("Imba") };
+            List<Fighter> fighters = new List<Fighter>() { new Barbarian("ZUXLET"), new Mage("SPOR"), new Warrior("Foenix"), new Imba("androidggg") };
 
             for (int i = 0; i < fighters.Count; i++)
             {
@@ -42,7 +42,6 @@ namespace _6._6._Гладиаторские_бои
             while (rightFighter.Health > 0 && leftFighter.Health > 0)
             {
 
-
                 rightFighter.ShowInfo();
                 leftFighter.ShowInfo();
                 if (UnBuff == 0)
@@ -71,7 +70,7 @@ namespace _6._6._Гладиаторские_бои
 
                 leftFighter.Fight(leftFighter, rightFighter);
                 rightFighter.Fight(rightFighter, leftFighter);
-
+                Thread.Sleep(1000);
             }
             Console.WriteLine();
             rightFighter.ShowInfo();
@@ -91,7 +90,7 @@ namespace _6._6._Гладиаторские_бои
                     Console.WriteLine("\nВраг убит 1 ударом");
                 }
                 Console.WriteLine("\nВыжил " + rightFighter.Name);
-            }
+            }            
 
         }
     }
