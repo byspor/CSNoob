@@ -82,7 +82,7 @@ namespace _6._8_Война
 
         }
     }
-
+    
 
     class Soldier
     {
