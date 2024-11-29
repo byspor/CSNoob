@@ -32,34 +32,50 @@
             {
                 Console.WriteLine($"Покупатель - {buyer.Name,-10} | На карте: {buyer.Money,-5}\n\tКорзина товаров:\n");
                 buyer.InfoBasket();
+                Console.WriteLine($"\nИтоговый чек: {buyer.PriceInfoFullBasket()}");
                 Console.WriteLine();
             }
 
 
 
 
+            //foreach (var buyer in buyers)
+            //{
+            //    int i = 0;
+            //    while (i < buyer.basket.Count)
+            //    {
+            //        if (buyer.Money >= buyer.basket[i].Price)
+            //        {
+            //            buyer.Money -= buyer.basket[i].Price;
+            //            i++;
+            //        }
+            //        else
+            //        {
+            //            buyer.basket.RemoveAt(i);
+            //        }
+            //    }
+            //}
+
+
             foreach (var buyer in buyers)
             {
-                int i = 0;
-                while (i < buyer.basket.Count)
+                
+                while (buyer.Money <= buyer.PriceInfoFullBasket())
                 {
-                    if (buyer.Money >= buyer.basket[i].Price)
+                    if (buyer.Money < buyer.PriceInfoFullBasket())
                     {
-                        buyer.Money -= buyer.basket[i].Price;
-                        i++;
-                    }
-                    else
-                    {
-                        buyer.basket.RemoveAt(i);
+                        buyer.basket.RemoveAt(Random.Shared.Next(0, buyer.basket.Count));
                     }
                 }
             }
+
 
             Console.WriteLine("После оплаты:");
             foreach (var buyer in buyers)
             {
                 Console.WriteLine($"Покупатель - {buyer.Name,-10} | На карте: {buyer.Money,-5}\n\tКорзина товаров:\n");
                 buyer.InfoBasket();
+                Console.WriteLine($"\nИтоговый чек: {buyer.PriceInfoFullBasket()}");
                 Console.WriteLine();
             }
 
@@ -92,7 +108,17 @@ class Buyer
         {
             Console.WriteLine($"Наименование: {product.Name, -15} | Цена: {product.Price, -5}");
         }
-    }  
+    }
+
+    public float PriceInfoFullBasket()
+    {
+        float Sum = 0;
+        foreach (Product product in basket)
+        {
+            Sum += product.Price;
+        }        
+       return Sum;
+    }
 
 }
 
