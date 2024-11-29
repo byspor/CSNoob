@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6.5 Конфигурато�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6.6. Гладиаторские бои", "6.6. Гладиаторские бои\6.6. Гладиаторские бои.csproj", "{685EDF6B-BEA4-490B-8A7B-B4EE0704D787}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7.1 Супермаркет", "7.1 Супермаркет\7.1 Супермаркет.csproj", "{F6E12509-E13B-4A43-BCAD-5BEE4FD7BE20}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,10 @@ Global
 		{685EDF6B-BEA4-490B-8A7B-B4EE0704D787}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{685EDF6B-BEA4-490B-8A7B-B4EE0704D787}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{685EDF6B-BEA4-490B-8A7B-B4EE0704D787}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6E12509-E13B-4A43-BCAD-5BEE4FD7BE20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6E12509-E13B-4A43-BCAD-5BEE4FD7BE20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6E12509-E13B-4A43-BCAD-5BEE4FD7BE20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6E12509-E13B-4A43-BCAD-5BEE4FD7BE20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
