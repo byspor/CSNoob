@@ -49,6 +49,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6.8 Война", "6.8 Во�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6.9 Аквариум", "6.9 Аквариум\6.9 Аквариум.csproj", "{42F3D192-06A8-4FFE-B0E7-44EFC8935CE9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6.10 Зоопарк", "6.10 Зоопарк\6.10 Зоопарк.csproj", "{0B5D7A9E-BE6D-408D-9B87-12556BA37145}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -147,6 +149,10 @@ Global
 		{42F3D192-06A8-4FFE-B0E7-44EFC8935CE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42F3D192-06A8-4FFE-B0E7-44EFC8935CE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42F3D192-06A8-4FFE-B0E7-44EFC8935CE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B5D7A9E-BE6D-408D-9B87-12556BA37145}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B5D7A9E-BE6D-408D-9B87-12556BA37145}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B5D7A9E-BE6D-408D-9B87-12556BA37145}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B5D7A9E-BE6D-408D-9B87-12556BA37145}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
