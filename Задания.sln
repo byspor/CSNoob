@@ -53,6 +53,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6.10 Зоопарк", "6.10
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6.11 Автосервис", "6.11 Автосервис\6.11 Автосервис.csproj", "{5BEF810B-7950-4FF7-B80B-D7C148F8ABDB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7.1. Поиск преступника", "7.1. Поиск преступника\7.1. Поиск преступника.csproj", "{5F4FA77E-10BA-4BA1-8205-A7DA71C113DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -159,6 +161,10 @@ Global
 		{5BEF810B-7950-4FF7-B80B-D7C148F8ABDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BEF810B-7950-4FF7-B80B-D7C148F8ABDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BEF810B-7950-4FF7-B80B-D7C148F8ABDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F4FA77E-10BA-4BA1-8205-A7DA71C113DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F4FA77E-10BA-4BA1-8205-A7DA71C113DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F4FA77E-10BA-4BA1-8205-A7DA71C113DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F4FA77E-10BA-4BA1-8205-A7DA71C113DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
