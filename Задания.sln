@@ -57,6 +57,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7.1. Поиск прест�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7.2. Амнистия", "7.2. Амнистия\7.2. Амнистия.csproj", "{6717B806-4F29-49E9-AF0B-CF4D0AA02472}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7.3. Анархия в больнице", "7.3. Анархия в больнице\7.3. Анархия в больнице.csproj", "{65A99AB7-9D97-44C5-BEE5-68A1BAF63E15}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -171,6 +173,10 @@ Global
 		{6717B806-4F29-49E9-AF0B-CF4D0AA02472}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6717B806-4F29-49E9-AF0B-CF4D0AA02472}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6717B806-4F29-49E9-AF0B-CF4D0AA02472}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65A99AB7-9D97-44C5-BEE5-68A1BAF63E15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65A99AB7-9D97-44C5-BEE5-68A1BAF63E15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65A99AB7-9D97-44C5-BEE5-68A1BAF63E15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65A99AB7-9D97-44C5-BEE5-68A1BAF63E15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
